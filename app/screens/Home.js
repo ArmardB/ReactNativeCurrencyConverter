@@ -19,16 +19,27 @@ class Home extends Component {
     console.log('Pressed quote currency');
   }
 
+  handleTextChange = (text) => {
+    console.log('change text', text);
+  };
+
   render() {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
-        <InputWithButton buttonText={TEMP_BASE_CURRENCY} onPress={this.handlePressBaseCurrency} />
+        <InputWithButton
+          buttonText={TEMP_BASE_CURRENCY}
+          onPress={this.handlePressBaseCurrency}
+          defaultValue={TEMP_BASE_PRICE}
+          keyboardType="numeric"
+          onChangeText={this.handleTextChange}
+        />
         <InputWithButton
           buttonText={TEMP_QUOTE_CURRENCY}
           onPress={this.handlePressQuoteCurrency}
           editable={false}
+          defaultValue={TEMP_QUOTE_PRICE}
         />
       </Container>
     );
